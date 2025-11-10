@@ -29,17 +29,27 @@
 
 import os
 
-def generate_key(n): return os.urandom(n)
 
-def otp_encrypt(msg, key): return bytes([m ^ k for m, k in zip(msg.encode(), key)])
-def otp_decrypt(ct, key): return ''.join(chr(c ^ k) for c, k in zip(ct, key))
+def generate_key(n):
+    return os.urandom(n)
+
+
+def otp_encrypt(msg, key):
+    return bytes([m ^ k for m, k in zip(msg.encode(), key)])
+
+
+def otp_decrypt(ct, key):
+    return "".join(chr(c ^ k) for c, k in zip(ct, key))
+
 
 # Example
 msg = "helloworld"
 key = generate_key(len(msg))
 ct = otp_encrypt(msg, key)
 
+
 print("Original:", msg)
 print("Key:", key.hex())
 print("Ciphertext:", ct.hex())
 print("Decrypted:", otp_decrypt(ct, key))
+print(msg.encode().hex())
