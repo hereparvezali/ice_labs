@@ -1,15 +1,7 @@
 """D: Differentially encoded OQPSK performance over AWGN (variant)."""
 
-import matplotlib
-import numpy as np
-
-for name in ("TkAgg", "QtAgg", "Qt5Agg"):
-    try:
-        matplotlib.use(name)
-        break
-    except Exception:
-        pass
 import matplotlib.pyplot as plt
+import numpy as np
 
 EBN0_DB = np.arange(0, 11)
 rng = np.random.default_rng(107)
@@ -92,4 +84,3 @@ plt.ylabel("Bit Error Rate (BER)")
 plt.title("Differential OQPSK over AWGN (Variant)")
 plt.tight_layout()
 plt.show(block=True)
-
