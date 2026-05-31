@@ -29,6 +29,6 @@ for snr_db in np.arange(1, 5.1, 0.5):
     ber = np.not_equal(decoded, data).sum() / len(data)
     bers.append(ber.item())
 print(bers)
-plt.plot(bers)
+plt.semilogy(np.arange(1, 5.1, 0.5), bers)
 plt.show()
 plt.tight_layout()
